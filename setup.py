@@ -83,6 +83,6 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     tests_require=test_deps,
-    install_requires=["keras"],
+    install_requires=["keras", "decorator"],
     extras_require=extras,
 )
