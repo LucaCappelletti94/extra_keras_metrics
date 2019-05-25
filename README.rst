@@ -49,7 +49,6 @@ You will get **all** the metrics from `Tensorflow <https://www.tensorflow.org/ap
 
 The **non-parametric** ones are:
 
-- accuracy
 - auprc
 - auroc
 - false_negatives

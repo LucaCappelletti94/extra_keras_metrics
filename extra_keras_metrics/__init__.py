@@ -1,6 +1,5 @@
 import keras
 from .average_precision_at_k import average_precision_at_k
-from .accuracy import accuracy
 from .auprc import auprc
 from .auroc import auroc
 from .false_negatives import false_negatives
@@ -28,7 +27,6 @@ from .true_positives import true_positives
 from .true_positives_at_thresholds import true_positives_at_thresholds
 
 non_parametric_metrics = [
-    accuracy,
     auprc,
     auroc,
     false_negatives,
