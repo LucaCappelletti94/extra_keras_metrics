@@ -1,3 +1,4 @@
+import keras
 from .average_precision_at_k import average_precision_at_k
 from .accuracy import accuracy
 from .auprc import auprc
@@ -61,7 +62,6 @@ parametric_metrics = [
     true_positives_at_thresholds
 ]
 
-import keras
 old_get = keras.metrics.get
 def get(identifier):
     global non_parametric_metrics_names
