@@ -5,7 +5,7 @@ import tensorflow as tf
 
 params = {
     "average_precision_at_k":{"args":[1,], "kwargs":{}},
-    "precision_at_k":{"args":[1,], "kwargs":{}},
+    "precision_at_k":{"args":[], "kwargs":{"k":1}},
     "precision_at_thresholds":{"args":[[0.9],], "kwargs":{}},
     "recall_at_k":{"args":[1,], "kwargs":{}},
     "recall_at_thresholds":{"args":[[0.9],], "kwargs":{}},
