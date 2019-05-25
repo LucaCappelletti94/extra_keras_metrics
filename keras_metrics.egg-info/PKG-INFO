@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: keras-metrics
+Version: 1.0.0
+Summary: Additional metrics integrated with the keras NN library, taken directly from tensorflow.
+Home-page: https://github.com/LucaCappelletti94/keras_metrics
+Author: Luca Cappelletti
+Author-email: cappelletti.luca94@gmail.com
+License: MIT
+Description: keras_metrics
+        ==================================================================
+        Additional metrics integrated with the keras NN library, taken directly from `Tensorflow 
+        <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_..
+        
+        How do I get this package?
+        ----------------------------------------------
+        As usual, just install it with pip:
+        
+        .. code: bash
+        
+            pip install keras_metrics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: test
