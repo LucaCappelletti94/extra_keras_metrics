@@ -1,8 +1,0 @@
-keras
-
-[test]
-pytest
-pytest-cov
-coveralls
-numpy
-silence_tensorflow

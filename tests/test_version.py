@@ -1,4 +1,4 @@
-from keras_metrics.__version__ import __version__
+from extra_keras_metrics.__version__ import __version__
 import re
 
 def test_version():

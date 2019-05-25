@@ -1,4 +1,4 @@
-from keras_metrics import metrics, parametric_metrics, non_parametric_metrics
+from extra_keras_metrics import metrics, parametric_metrics, non_parametric_metrics
 from .utils import train_with_metric
 import numpy as np
 import tensorflow as tf

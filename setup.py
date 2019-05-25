@@ -28,7 +28,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-__version__ = find_version("keras_metrics", "__version__.py")
+__version__ = find_version("extra_keras_metrics", "__version__.py")
 
 test_deps = ['pytest', 'pytest-cov', 'coveralls', 'numpy', "silence_tensorflow"]
 
@@ -37,7 +37,7 @@ extras = {
 }
 
 setup(
-    name='keras_metrics',
+    name='extra_keras_metrics',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -48,7 +48,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/LucaCappelletti94/keras_metrics',
+    url='https://github.com/LucaCappelletti94/extra_keras_metrics',
 
     # Author details
     author='Luca Cappelletti',

@@ -1,9 +1,9 @@
-from keras_metrics import metrics
+from extra_keras_metrics import metrics
 import os
 
 def test_forgetting_metrics():
     files = {
-        f[:-3] for f in  os.listdir("keras_metrics") if f.endswith(".py")
+        f[:-3] for f in  os.listdir("extra_keras_metrics") if f.endswith(".py")
     } - {"__init__", "__version__", "metric", "parametrized_metric"}
     forgotten_metrics = files - set([
         m.__name__ for m in metrics
