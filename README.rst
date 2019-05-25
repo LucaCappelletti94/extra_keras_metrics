@@ -1,5 +1,7 @@
 extra_keras_metrics
 ==================================================================
+|travis| |sonar_quality| |sonar_maintainability| |sonar_coverage| |code_climate_maintainability| |pip|
+
 Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
 
 How do I get this package?
@@ -77,3 +79,23 @@ The **parametric** ones are:
 - specificity_at_sensitivity
 - true_negatives_at_thresholds
 - true_positives_at_thresholds
+
+
+.. |travis| image:: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics.png
+   :target: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics
+
+.. |sonar_quality| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_extra_keras_metrics&metric=alert_status
+    :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_extra_keras_metrics
+
+.. |sonar_maintainability| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_extra_keras_metrics&metric=sqale_rating
+    :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_extra_keras_metrics
+
+.. |sonar_coverage| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_extra_keras_metrics&metric=coverage
+    :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_extra_keras_metrics
+
+.. |code_climate_maintainability| image:: https://api.codeclimate.com/v1/badges/25fb7c6119e188dbd12c/maintainability
+   :target: https://codeclimate.com/github/LucaCappelletti94/extra_keras_metrics/maintainability
+   :alt: Maintainability
+
+.. |pip| image:: https://badge.fury.io/py/extra_keras_metrics.svg
+    :target: https://badge.fury.io/py/extra_keras_metrics
