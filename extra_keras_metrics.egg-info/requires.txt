@@ -1,0 +1,9 @@
+keras
+decorator
+
+[test]
+pytest
+pytest-cov
+coveralls
+numpy
+silence_tensorflow

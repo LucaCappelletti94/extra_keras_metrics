@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: extra-keras-metrics
+Version: 1.0.0
+Summary: Additional metrics integrated with the keras NN library, taken directly from tensorflow.
+Home-page: https://github.com/LucaCappelletti94/extra_keras_metrics
+Author: Luca Cappelletti
+Author-email: cappelletti.luca94@gmail.com
+License: MIT
+Description: extra_keras_metrics
+        ==================================================================
+        |travis| |sonar_quality| |sonar_maintainability| |sonar_coverage| |code_climate_maintainability| |pip|
+        
+        Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
+        
+        How do I get this package?
+        ----------------------------------------------
+        As usual, just install it with pip:
+        
+        .. code:: bash
+        
+            pip install extra_keras_metrics
+        
+        
+        How do I use this package?
+        ----------------------------------------------
+        Just by importing it you will be able to access all the non-parametric metrics, such as `"auprc"` and `"auroc"`:
+        
+        .. code:: python
+        
+            import extra_keras_metrics
+        
+            model = my_keras_model()
+            model.compile(
+                optimizer="sgd",
+                loss="binary_crossentropy",
+                metrics=["auroc", "auprc"]
+            )
+        
+        For the parametric metrics, such as `"average_precision_at_k"`, you will need to import them, such as:
+        
+        .. code:: python
+        
+            from extra_keras_metrics import average_precision_at_k
+        
+            model = my_keras_model()
+            model.compile(
+                optimizer="sgd",
+                loss="binary_crossentropy",
+                metrics=[average_precision_at_k(1), average_precision_at_k(2)]
+            )
+        
+        This way in the history of the model you will find both the metrics indexed as `"average_precision_at_k_1"` and `"average_precision_at_k_2"` respectively.
+        
+        Which metrics do I get?
+        ----------------------------------------------
+        You will get **all** the metrics from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_. At the time of writing, the ones available are the following:
+        
+        The **non-parametric** ones are:
+        
+        - auprc
+        - auroc
+        - false_negatives
+        - false_positives
+        - mean_absolute_error
+        - mean_squared_error
+        - precision
+        - recall
+        - root_mean_squared_error
+        - true_negatives
+        - true_positives
+        
+        The **parametric** ones are:
+        
+        - average_precision_at_k
+        - false_negatives_at_thresholds
+        - false_positives_at_thresholds
+        - mean_cosine_distance
+        - mean_iou
+        - mean_per_class_accuracy
+        - mean_relative_error
+        - precision_at_k
+        - precision_at_thresholds
+        - recall_at_k
+        - recall_at_thresholds
+        - sensitivity_at_specificity
+        - specificity_at_sensitivity
+        - true_negatives_at_thresholds
+        - true_positives_at_thresholds
+        
+        
+        .. |travis| image:: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics.png
+           :target: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics
+        
+        .. |sonar_quality| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_extra_keras_metrics&metric=alert_status
+            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_extra_keras_metrics
+        
+        .. |sonar_maintainability| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_extra_keras_metrics&metric=sqale_rating
+            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_extra_keras_metrics
+        
+        .. |sonar_coverage| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_extra_keras_metrics&metric=coverage
+            :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_extra_keras_metrics
+        
+        .. |code_climate_maintainability| image:: https://api.codeclimate.com/v1/badges/25fb7c6119e188dbd12c/maintainability
+           :target: https://codeclimate.com/github/LucaCappelletti94/extra_keras_metrics/maintainability
+           :alt: Maintainability
+        
+        .. |pip| image:: https://badge.fury.io/py/extra_keras_metrics.svg
+            :target: https://badge.fury.io/py/extra_keras_metrics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: test
