@@ -26,8 +26,7 @@ after_script:
 script:
 - rm -rf .coverage
 - coverage erase
-- pytest --cov=arrp --cov-report xml:coverage.xml 
-- coverage combine --append
+- pytest --cov=extra_keras_metrics --cov-report xml:coverage.xml 
 - coverage report
 - coverage xml
 - sonar-scanner
