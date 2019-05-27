@@ -7,4 +7,4 @@ def auroc(labels:tf.Tensor, predictions:tf.Tensor)->float:
         labels:tf.Tensor, the expected output values.
         predictions:tf.Tensor, the predicted output values.
     """
-    return tf.metrics.auc(labels, predictions, curve="PR", summation_method="careful_interpolation")[1]
+    return tf.metrics.auc(labels, predictions, curve="ROC", summation_method="careful_interpolation")[1]
