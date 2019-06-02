@@ -18,7 +18,71 @@ Since some software handling coverages sometime get slightly different results, 
 
 |coveralls| |sonar_coverage| |code_climate_coverage|
 
-AFTER
+How do I use this package?
+----------------------------------------------
+Just by importing it you will be able to access all the non-parametric metrics, such as `"auprc"` and `"auroc"`:
+
+.. code:: python
+
+    import extra_keras_metrics
+
+    model = my_keras_model()
+    model.compile(
+        optimizer="sgd",
+        loss="binary_crossentropy",
+        metrics=["auroc", "auprc"]
+    )
+
+For the parametric metrics, such as `"average_precision_at_k"`, you will need to import them, such as:
+
+.. code:: python
+
+    from extra_keras_metrics import average_precision_at_k
+
+    model = my_keras_model()
+    model.compile(
+        optimizer="sgd",
+        loss="binary_crossentropy",
+        metrics=[average_precision_at_k(1), average_precision_at_k(2)]
+    )
+
+This way in the history of the model you will find both the metrics indexed as `"average_precision_at_k_1"` and `"average_precision_at_k_2"` respectively.
+
+Which metrics do I get?
+----------------------------------------------
+You will get **all** the metrics from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_. At the time of writing, the ones available are the following:
+
+The **non-parametric** ones are:
+
+- auprc
+- auroc
+- false_negatives
+- false_positives
+- mean_absolute_error
+- mean_squared_error
+- precision
+- recall
+- root_mean_squared_error
+- true_negatives
+- true_positives
+
+The **parametric** ones are:
+
+- average_precision_at_k
+- false_negatives_at_thresholds
+- false_positives_at_thresholds
+- mean_cosine_distance
+- mean_iou
+- mean_per_class_accuracy
+- mean_relative_error
+- precision_at_k
+- precision_at_thresholds
+- recall_at_k
+- recall_at_thresholds
+- sensitivity_at_specificity
+- specificity_at_sensitivity
+- true_negatives_at_thresholds
+- true_positives_at_thresholds
 
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics.png
    :target: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics
