@@ -3,7 +3,9 @@ decorator
 
 [test]
 pytest
-pytest-cov
+codacy-coverage
 coveralls
-numpy
+validate_version_code
 silence_tensorflow
+pytest-cov
+numpy
