@@ -84,6 +84,11 @@ The **parametric** ones are:
 - true_negatives_at_thresholds
 - true_positives_at_thresholds
 
+Extras
+----------------------------
+I've created also another couple packages you might enjoy: one, called `extra_keras_utils <https://github.com/LucaCappelletti94/extra_keras_utils>`_ that contains some commonly used code for Keras projects and `plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`_ which automatically plots a keras training history.
+
+
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics.png
    :target: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics
    :alt: Travis CI build
@@ -104,12 +109,12 @@ The **parametric** ones are:
     :target: https://coveralls.io/github/LucaCappelletti94/extra_keras_metrics?branch=master
     :alt: Coveralls Coverage
 
-.. |pip| image:: https://badge.fury.io/py/extra_keras_metrics.svg
+.. |pip| image:: https://badge.fury.io/py/extra-keras-metrics.svg
     :target: https://badge.fury.io/py/extra_keras_metrics
     :alt: Pypi project
 
-.. |downloads| image:: https://pepy.tech/badge/extra_keras_metrics
-    :target: https://pepy.tech/badge/extra_keras_metrics
+.. |downloads| image:: https://pepy.tech/badge/extra-keras-metrics
+    :target: https://pepy.tech/badge/extra-keras-metrics
     :alt: Pypi total project downloads 
 
 .. |codacy|  image:: https://api.codacy.com/project/badge/Grade/5c1fbcfbffc047e6bf810e9372198a5b
