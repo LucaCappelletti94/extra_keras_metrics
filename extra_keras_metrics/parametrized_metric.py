@@ -1,5 +1,5 @@
 from decorator import decorator
-from typing import Callable, List, Dict
+from typing import Callable, List, Dict, Tuple
 from .metric import metric
 import tensorflow as tf
 import math
@@ -53,7 +53,7 @@ def format_kwargs(kwargs:Dict):
     return ""
 
 @decorator
-def parametrized_metric(parametrized_metric:Callable[..., Callable[[tf.Tensor, tf.Tensor], float]], *args:List, **kwargs:Dict):
+def parametrized_metric(parametrized_metric:Callable[..., Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]], *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     metric = parametrized_metric(*args, **kwargs)
     metric.__name__ = "{metric}{args}{kwargs}".format(
         metric=parametrized_metric.__name__,

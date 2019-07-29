@@ -1,15 +1,16 @@
 from .metric import metric
 from .parametrized_metric import parametrized_metric
 import tensorflow as tf
-from typing import List, Dict
+from typing import List, Dict, Callable, Tuple
+
 
 @parametrized_metric
-def average_precision_at_k(k:int, *args:List, **kwargs:Dict):
+def average_precision_at_k(k: int, *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     """Return a average_precision_at_k with parameter k.
         Integer, k for @k metric. This will calculate an average precision for range [1,k], as documented above.
     """
     @metric
-    def tmp(labels:tf.Tensor, predictions:tf.Tensor)->float:
+    def tmp(labels: tf.Tensor, predictions: tf.Tensor)->Tuple[tf.Tensor, Dict]:
         """Return average_precision_at_k score for given epoch results.
             labels:tf.Tensor, the expected output values.
             predictions:tf.Tensor, the predicted output values.
@@ -20,5 +21,5 @@ def average_precision_at_k(k:int, *args:List, **kwargs:Dict):
             k=k,
             *args,
             **kwargs
-        )[1]
+        )
     return tmp
