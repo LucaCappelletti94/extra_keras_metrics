@@ -7,9 +7,6 @@ from keras import Sequential
 from keras.layers import Dense, Conv2D, Flatten
 from keras.datasets import cifar10
 from extra_keras_utils import set_seed
-from environments_utils import is_notebook
-from keras_tqdm import TQDMNotebookCallback, TQDMCallback
-ktqdm = TQDMNotebookCallback if is_notebook() else TQDMCallback
 
 params = {
     "average_precision_at_k": {"args": [1, ], "kwargs": {}},
@@ -77,5 +74,4 @@ def test_metrics():
             callbacks=[ktqdm()]
         ).history
     )
-    print(history.var() != 0)
     assert np.all(history.var() != 0)
