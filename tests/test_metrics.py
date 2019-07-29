@@ -70,8 +70,7 @@ def test_metrics():
             epochs=20,
             batch_size=1000,
             shuffle=True,
-            validation_data=(x_test, y_test),
-            callbacks=[ktqdm()]
+            validation_data=(x_test, y_test)
         ).history
     )
     assert np.all(history.var() != 0)
