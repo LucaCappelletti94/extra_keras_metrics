@@ -20,7 +20,7 @@ def format_list(param:List):
         format_parameter(p) for p in param
     )
 
-def format_parameter(param):
+def format_parameter(param)->str:
     if isinstance(param, int):
         return format_int(param)
     if isinstance(param, float):
@@ -29,35 +29,12 @@ def format_parameter(param):
         return format_list(param)
     if isinstance(param, tf.Tensor):
         return ""
-    raise ValueError("Unknown type!")
-
-def format_args(args:List):
-    if args:
-        return "_{args}".format(
-            args="_".join([
-                format_parameter(arg) for arg in args
-            ])
-        )
-    return ""
-
-def format_kwargs(kwargs:Dict):
-    if kwargs:
-        return "_{kwargs}".format(
-            kwargs="_".join([
-                "{key}-{arg}".format(
-                    key=key,
-                    arg=format_parameter(arg)
-                ) for key, arg in kwargs.items()
-            ])
-        )
-    return ""
 
 @decorator
-def parametrized_metric(parametrized_metric:Callable[..., Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]], *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
-    metric = parametrized_metric(*args, **kwargs)
-    metric.__name__ = "{metric}{args}{kwargs}".format(
+def parametrized_metric(parametrized_metric:Callable[..., Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]], *args: List)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
+    metric = parametrized_metric(*args)
+    metric.__name__ = "{metric}{args}".format(
         metric=parametrized_metric.__name__,
-        args=format_args(args),
-        kwargs=format_kwargs(kwargs)
+        args=format_list(args)
     )
     return metric
