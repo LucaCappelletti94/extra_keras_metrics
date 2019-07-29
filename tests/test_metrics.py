@@ -55,7 +55,7 @@ def test_metrics():
         Flatten(),
         Dense(100, activation="relu"),
         Dense(100, activation="relu"),
-        Dense(num_classes, activation="sigmoid")
+        Dense(num_classes, activation="softmax")
     ])
     model.compile(
         optimizer="nadam",
