@@ -66,7 +66,7 @@ The **non-parametric** ones are (tested against their conterpart from sklearn):
 - true_negatives
 - true_positives
 
-The **parametric** ones are:
+The **parametric** ones are (only execution is tested, no baseline in sklearn was available):
 
 - average_precision_at_k
 - precision_at_k

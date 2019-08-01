@@ -30,7 +30,7 @@ def find_version(*file_paths):
 
 __version__ = find_version("extra_keras_metrics", "__version__.py")
 
-test_deps =["pytest", "codacy-coverage", "coveralls", "validate_version_code", "pytest-cov", "numpy", "sklearn"]
+test_deps =["pytest", "codacy-coverage", "coveralls", "validate_version_code", "pytest-cov", "numpy", "sklearn", "silence_tensorflow"]
 
 extras = {
     'test': test_deps,

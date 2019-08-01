@@ -1,8 +1,6 @@
 from typing import Callable, Dict
 import numpy as np
-from .to_tensor import to_tensor
-from keras import backend as K
-
+from .run_metric import run_metric
 
 def compare_metrics(tensorflow_metric:Callable, baseline_metric:Callable, baseline_metric_kwargs:Dict=None, tests:int=10, min_pearson_correlation:float=0.99):
     """Run comparison test for the two given metrics.
@@ -22,7 +20,7 @@ def compare_metrics(tensorflow_metric:Callable, baseline_metric:Callable, baseli
 
     scores = np.array([
         (
-            K.get_session().run(tensorflow_metric(*to_tensor(y_true[i], y_pred[i]))),
+            run_metric(tensorflow_metric, y_true[i], y_pred[i]),
             baseline_metric(y_true[i], y_pred[i], **baseline_metric_kwargs)
         ) for i in range(tests)
     ]).T
