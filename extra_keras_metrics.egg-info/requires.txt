@@ -8,5 +8,5 @@ coveralls
 validate_version_code
 pytest-cov
 numpy
-pandas
-extra_keras_utils
+sklearn
+silence_tensorflow
