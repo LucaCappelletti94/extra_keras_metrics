@@ -1,9 +1,7 @@
 from decorator import decorator
 from typing import Callable, List, Dict, Tuple
-from .metric import metric
 import tensorflow as tf
 import math
-import numpy as np
 
 def format_int(param:int):
     return str(param)

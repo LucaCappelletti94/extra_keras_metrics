@@ -1,5 +1,4 @@
 from typing import Callable, Dict
-import tensorflow as tf
 import numpy as np
 from .to_tensor import to_tensor
 from keras import backend as K
