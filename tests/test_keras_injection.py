@@ -12,7 +12,7 @@ def test_keras_injection():
     model.compile(
         optimizer="nadam",
         loss="binary_crossentropy",
-        metrics=["auprc", "accuracy"]
+        metrics=["auprc", "acc", "mae"],
     )
 
     model.fit(
