@@ -69,8 +69,6 @@ The **non-parametric** ones are:
 The **parametric** ones are:
 
 - average_precision_at_k
-- false_negatives_at_thresholds
-- false_positives_at_thresholds
 - mean_cosine_distance
 - mean_iou
 - mean_relative_error
@@ -80,8 +78,6 @@ The **parametric** ones are:
 - recall_at_thresholds
 - sensitivity_at_specificity
 - specificity_at_sensitivity
-- true_negatives_at_thresholds
-- true_positives_at_thresholds
 
 Extras
 ----------------------------
