@@ -5,16 +5,11 @@ from .auroc import auroc
 from .false_negatives import false_negatives
 from .false_positives import false_positives
 from .mean_absolute_error import mean_absolute_error
-from .mean_cosine_distance import mean_cosine_distance
-from .mean_iou import mean_iou
-from .mean_relative_error import mean_relative_error
 from .mean_squared_error import mean_squared_error
 from .precision import precision
 from .precision_at_k import precision_at_k
-from .precision_at_thresholds import precision_at_thresholds
 from .recall import recall
 from .recall_at_k import recall_at_k
-from .recall_at_thresholds import recall_at_thresholds
 from .root_mean_squared_error import root_mean_squared_error
 from .sensitivity_at_specificity import sensitivity_at_specificity
 from .specificity_at_sensitivity import specificity_at_sensitivity
@@ -39,13 +34,8 @@ non_parametric_metrics_names = {m.__name__:m for m in non_parametric_metrics}
 
 parametric_metrics = [
     average_precision_at_k,
-    mean_cosine_distance,
-    mean_iou,
-    mean_relative_error,
     precision_at_k,
-    precision_at_thresholds,
     recall_at_k,
-    recall_at_thresholds,
     sensitivity_at_specificity,
     specificity_at_sensitivity
 ]

@@ -52,7 +52,7 @@ Which metrics do I get?
 ----------------------------------------------
 You will get all the following metrics taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_. At the time of writing, the ones available are the following:
 
-The **non-parametric** ones are:
+The **non-parametric** ones are (tested against their conterpart from sklearn):
 
 - auprc
 - auroc
@@ -69,13 +69,8 @@ The **non-parametric** ones are:
 The **parametric** ones are:
 
 - average_precision_at_k
-- mean_cosine_distance
-- mean_iou
-- mean_relative_error
 - precision_at_k
-- precision_at_thresholds
 - recall_at_k
-- recall_at_thresholds
 - sensitivity_at_specificity
 - specificity_at_sensitivity
 
