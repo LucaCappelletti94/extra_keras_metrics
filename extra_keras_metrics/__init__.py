@@ -30,25 +30,25 @@ non_parametric_metrics = [
     true_positives
 ]
 
-non_parametric_metrics_names = {m.__name__:m for m in non_parametric_metrics}
-
-parametric_metrics = [
-    average_precision_at_k,
-    precision_at_k,
-    recall_at_k,
-    sensitivity_at_specificity,
-    specificity_at_sensitivity
-]
+non_parametric_metrics_names = {m.__name__: m for m in non_parametric_metrics}
 
 old_get = keras.metrics.get
+
+
 def get(identifier):
     global non_parametric_metrics_names
     if identifier in non_parametric_metrics_names:
         return non_parametric_metrics_names[identifier]
     return old_get(identifier)
 
+
 keras.metrics.get = get
 
-metrics = non_parametric_metrics + parametric_metrics
 
-__all__ = ["metrics", "non_parametric_metrics", "parametric_metrics"] + [m.__name__ for m in metrics]
+__all__ = list(non_parametric_metrics_names.keys()) + [
+    "average_precision_at_k",
+    "precision_at_k",
+    "recall_at_k",
+    "sensitivity_at_specificity",
+    "specificity_at_sensitivity"
+]
