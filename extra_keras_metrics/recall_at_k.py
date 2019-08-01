@@ -4,7 +4,7 @@ import tensorflow as tf
 from typing import List, Dict, Callable, Tuple
 
 @parametrized_metric
-def recall_at_k(k:int, *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
+def recall_at_k(k:int, *args: List)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     """Return a recall_at_k with parameter k.
         Integer, k for @k metric.
     """
@@ -18,7 +18,6 @@ def recall_at_k(k:int, *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Ten
             tf.to_int64(tf.math.round(labels)),
             tf.to_int64(tf.math.round(predictions)),
             k=k,
-            *args,
-            **kwargs
+            *args
         )
     return tmp

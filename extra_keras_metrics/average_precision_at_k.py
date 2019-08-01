@@ -5,9 +5,9 @@ from typing import List, Dict, Callable, Tuple
 
 
 @parametrized_metric
-def average_precision_at_k(k: int, *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
+def average_precision_at_k(k: int, *args: List)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     """Return a average_precision_at_k with parameter k.
-        Integer, k for @k metric. This will calculate an average precision for range [1,k], as documented above.
+        Integer, k for @k metric. This will calculate an average precision for range [1,k].
     """
     @metric
     def tmp(labels: tf.Tensor, predictions: tf.Tensor)->Tuple[tf.Tensor, Dict]:
@@ -16,10 +16,9 @@ def average_precision_at_k(k: int, *args: List, **kwargs: Dict)->Callable[[tf.Te
             predictions:tf.Tensor, the predicted output values.
         """
         return tf.metrics.average_precision_at_k(
-            tf.to_int64(tf.math.round(labels)),
+            labels,
             tf.to_int64(tf.math.round(predictions)),
             k=k,
-            *args,
-            **kwargs
+            *args
         )
     return tmp

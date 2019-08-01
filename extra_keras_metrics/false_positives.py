@@ -8,4 +8,4 @@ def false_positives(labels:tf.Tensor, predictions:tf.Tensor)->Tuple[tf.Tensor, D
         labels:tf.Tensor, the expected output values.
         predictions:tf.Tensor, the predicted output values.
     """
-    return tf.metrics.false_positives(labels, predictions)
+    return tf.metrics.false_positives(labels, tf.to_int64(tf.math.round(predictions)))

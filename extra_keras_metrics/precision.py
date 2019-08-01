@@ -8,4 +8,4 @@ def precision(labels:tf.Tensor, predictions:tf.Tensor)->Tuple[tf.Tensor, Dict]:
         labels:tf.Tensor, the expected output values.
         predictions:tf.Tensor, the predicted output values.
     """
-    return tf.metrics.precision(labels, predictions)
+    return tf.metrics.precision(labels, tf.to_int64(tf.math.round(predictions)))

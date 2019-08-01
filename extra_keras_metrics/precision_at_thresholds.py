@@ -4,7 +4,7 @@ import tensorflow as tf
 from typing import List, Dict, Callable, Tuple
 
 @parametrized_metric
-def precision_at_thresholds(thresholds:List[float], *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
+def precision_at_thresholds(thresholds:List[float], *args: List)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     """Return a precision_at_thresholds with parameter thresholds.
         thresholds:List[float], A python list or tuple of float thresholds in [0, 1].
     """
@@ -14,5 +14,5 @@ def precision_at_thresholds(thresholds:List[float], *args: List, **kwargs: Dict)
             labels:tf.Tensor, the expected output values.
             predictions:tf.Tensor, the predicted output values.
         """
-        return tf.metrics.precision_at_thresholds(labels, predictions, thresholds=thresholds, *args, **kwargs)
+        return tf.metrics.precision_at_thresholds(labels, predictions, thresholds=thresholds, *args)
     return tmp

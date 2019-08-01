@@ -73,7 +73,6 @@ The **parametric** ones are:
 - false_positives_at_thresholds
 - mean_cosine_distance
 - mean_iou
-- mean_per_class_accuracy
 - mean_relative_error
 - precision_at_k
 - precision_at_thresholds

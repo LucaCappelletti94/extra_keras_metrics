@@ -9,7 +9,6 @@ from .false_positives_at_thresholds import false_positives_at_thresholds
 from .mean_absolute_error import mean_absolute_error
 from .mean_cosine_distance import mean_cosine_distance
 from .mean_iou import mean_iou
-from .mean_per_class_accuracy import mean_per_class_accuracy
 from .mean_relative_error import mean_relative_error
 from .mean_squared_error import mean_squared_error
 from .precision import precision
@@ -48,7 +47,6 @@ parametric_metrics = [
     false_positives_at_thresholds,
     mean_cosine_distance,
     mean_iou,
-    mean_per_class_accuracy,
     mean_relative_error,
     precision_at_k,
     precision_at_thresholds,

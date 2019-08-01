@@ -4,7 +4,7 @@ import tensorflow as tf
 from typing import List, Dict, Callable, Tuple
 
 @parametrized_metric
-def sensitivity_at_specificity(specificity:float, *args: List, **kwargs: Dict)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
+def sensitivity_at_specificity(specificity:float, *args: List)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     """Return a sensitivity_at_specificity with parameter specificity.
         specificity:float, A scalar value in range [0, 1].
     """
@@ -18,7 +18,6 @@ def sensitivity_at_specificity(specificity:float, *args: List, **kwargs: Dict)->
             labels,
             predictions,
             specificity=specificity,
-            *args,
-            **kwargs
+            *args
         )
     return tmp
