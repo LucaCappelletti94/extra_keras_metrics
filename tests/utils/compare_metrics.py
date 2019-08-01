@@ -1,4 +1,4 @@
-from typing import Callable, Dict
+from typing import Callable
 import numpy as np
 from .run_metric import run_metric
 
