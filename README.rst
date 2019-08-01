@@ -50,7 +50,7 @@ This way in the history of the model you will find both the metrics indexed as `
 
 Which metrics do I get?
 ----------------------------------------------
-You will get **all** the metrics from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_. At the time of writing, the ones available are the following:
+You will get all the following metrics taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_. At the time of writing, the ones available are the following:
 
 The **non-parametric** ones are:
 
