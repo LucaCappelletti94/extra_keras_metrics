@@ -2,7 +2,7 @@ extra_keras_metrics
 =========================================================================================
 |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
 
-Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
+Additional metrics integrated with the Keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
 
 How do I install this package?
 ----------------------------------------------
@@ -14,7 +14,7 @@ As usual, just download it using pip:
 
 Tests Coverage
 ----------------------------------------------
-Since some software handling coverages sometime get slightly different results, here's three of them:
+Since some software handling coverages sometimes get slightly different results, here's three of them:
 
 |coveralls| |sonar_coverage| |code_climate_coverage|
 
@@ -54,17 +54,17 @@ You will get all the following metrics taken directly from `Tensorflow <https://
 
 The **non-parametric** ones are (tested against their conterpart from sklearn):
 
-- `AUPRC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `average_precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_).
-- `AUROC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `roc_auc_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html>`_).
-- `false_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/false_negatives>`_  (tested against false negatives from `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
-- `false_positives <https://tensorflow.org/api_docs/python/tf/metrics/false_positives>`_  (tested against false positives from `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
-- `mean_absolute_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_absolute_error>`_ (tested against `mean_absolute_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html#sklearn.metrics.mean_absolute_error>`_)
-- `mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_squared_error>`_ (tested against `mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
-- `precision <https://www.tensorflow.org/api_docs/python/tf/metrics/precision>`_ (tested against `precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score>`_)
-- `recall <https://www.tensorflow.org/api_docs/python/tf/metrics/recall>`_ (tested against `recall_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score>`_)
-- `root_mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/root_mean_squared_error>`_ (tested against squared root of `mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
-- `true_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_negatives>`_ (tested against `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
-- `true_positives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_positives>`_ (tested against `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
+- `AUPRC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `sklearn's average_precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_).
+- `AUROC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `sklearn's roc_auc_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html>`_).
+- `false_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/false_negatives>`_  (tested against false negatives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
+- `false_positives <https://tensorflow.org/api_docs/python/tf/metrics/false_positives>`_  (tested against false positives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
+- `mean_absolute_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_absolute_error>`_ (tested against `sklearn's mean_absolute_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html#sklearn.metrics.mean_absolute_error>`_)
+- `mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_squared_error>`_ (tested against `sklearn's mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
+- `precision <https://www.tensorflow.org/api_docs/python/tf/metrics/precision>`_ (tested against `sklearn's precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score>`_)
+- `recall <https://www.tensorflow.org/api_docs/python/tf/metrics/recall>`_ (tested against `sklearn's recall_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score>`_)
+- `root_mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/root_mean_squared_error>`_ (tested against squared root of `sklean's mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
+- `true_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_negatives>`_ (tested against true negatives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
+- `true_positives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_positives>`_ (tested against true positives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
 
 The **parametric** ones are (only execution is tested, no baseline in sklearn was available):
 
