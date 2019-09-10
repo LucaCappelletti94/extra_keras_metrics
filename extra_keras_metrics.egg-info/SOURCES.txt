@@ -9,6 +9,7 @@ extra_keras_metrics/average_precision_at_k.py
 extra_keras_metrics/false_negatives.py
 extra_keras_metrics/false_positives.py
 extra_keras_metrics/mean_absolute_error.py
+extra_keras_metrics/mean_iou.py
 extra_keras_metrics/mean_squared_error.py
 extra_keras_metrics/metric.py
 extra_keras_metrics/parametrized_metric.py

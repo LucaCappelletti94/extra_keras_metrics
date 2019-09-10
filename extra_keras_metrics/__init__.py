@@ -15,6 +15,7 @@ from .sensitivity_at_specificity import sensitivity_at_specificity
 from .specificity_at_sensitivity import specificity_at_sensitivity
 from .true_negatives import true_negatives
 from .true_positives import true_positives
+from .mean_iou import mean_iou
 
 non_parametric_metrics = [
     auprc,
@@ -50,5 +51,6 @@ __all__ = list(non_parametric_metrics_names.keys()) + [
     "precision_at_k",
     "recall_at_k",
     "sensitivity_at_specificity",
-    "specificity_at_sensitivity"
+    "specificity_at_sensitivity",
+    "mean_iou"
 ]

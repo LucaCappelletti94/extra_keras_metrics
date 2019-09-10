@@ -4,7 +4,7 @@ import tensorflow as tf
 
 
 @metric
-def auprc(labels: tf.Tensor, predictions: tf.Tensor)->Tuple[tf.Tensor, Dict]:
+def auprc(labels: tf.Tensor, predictions: tf.Tensor) -> Tuple[tf.Tensor, Dict]:
     """Return auprc score for given epoch results.
         labels:tf.Tensor, the expected output values.
         predictions:tf.Tensor, the predicted output values.

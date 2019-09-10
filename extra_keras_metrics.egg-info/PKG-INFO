@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: extra-keras-metrics
-Version: 1.3.0
+Version: 1.3.1
 Summary: Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
 Home-page: https://github.com/LucaCappelletti94/extra_keras_metrics
 Author: Luca Cappelletti
@@ -62,25 +62,26 @@ Description: extra_keras_metrics
         
         The **non-parametric** ones are (tested against their conterpart from sklearn):
         
-        - auprc
-        - auroc
-        - false_negatives
-        - false_positives
-        - mean_absolute_error
-        - mean_squared_error
-        - precision
-        - recall
-        - root_mean_squared_error
-        - true_negatives
-        - true_positives
+        - `AUPRC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `average_precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_).
+        - `AUROC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `roc_auc_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html>`_).
+        - `false_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/false_negatives>`_  (tested against false negatives from `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
+        - `false_positives <https://tensorflow.org/api_docs/python/tf/metrics/false_positives>`_  (tested against false positives from `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
+        - `mean_absolute_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_absolute_error>`_ (tested against `mean_absolute_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html#sklearn.metrics.mean_absolute_error>`_)
+        - `mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_squared_error>`_ (tested against `mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
+        - `precision <https://www.tensorflow.org/api_docs/python/tf/metrics/precision>`_ (tested against `precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score>`_)
+        - `recall <https://www.tensorflow.org/api_docs/python/tf/metrics/recall>`_ (tested against `recall_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score>`_)
+        - `root_mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/root_mean_squared_error>`_ (tested against squared root of `mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
+        - `true_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_negatives>`_ (tested against `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
+        - `true_positives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_positives>`_ (tested against `confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
         
         The **parametric** ones are (only execution is tested, no baseline in sklearn was available):
         
-        - average_precision_at_k
-        - precision_at_k
-        - recall_at_k
-        - sensitivity_at_specificity
-        - specificity_at_sensitivity
+        - `average_precision_at_k <https://www.tensorflow.org/api_docs/python/tf/metrics/average_precision_at_k>`_
+        - `precision_at_k <https://www.tensorflow.org/api_docs/python/tf/metrics/precision_at_k>`_
+        - `recall_at_k <https://www.tensorflow.org/api_docs/python/tf/metrics/recall_at_k>`_
+        - `mean_iou <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_iou>`_
+        - `sensitivity_at_specificity <https://www.tensorflow.org/api_docs/python/tf/metrics/sensitivity_at_specificity>`_
+        - `specificity_at_sensitivity <https://www.tensorflow.org/api_docs/python/tf/metrics/specificity_at_sensitivity>`_
         
         Extras
         ----------------------------

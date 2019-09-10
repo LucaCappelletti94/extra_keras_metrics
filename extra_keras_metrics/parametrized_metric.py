@@ -16,7 +16,7 @@ def format_float(param: float):
     ).strip("0")
 
 
-def format_parameter(param)->str:
+def format_parameter(param) -> str:
     if isinstance(param, int):
         return format_int(param)
     if isinstance(param, float):
@@ -30,7 +30,7 @@ def format_list(param: List):
 
 
 @decorator
-def parametrized_metric(parametrized_metric: Callable[..., Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]], *args: List)->Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
+def parametrized_metric(parametrized_metric: Callable[..., Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]], *args: List) -> Callable[[tf.Tensor, tf.Tensor], Tuple[tf.Tensor, Dict]]:
     metric = parametrized_metric(*args)
     metric.__name__ = "{metric}{args}".format(
         metric=parametrized_metric.__name__,
