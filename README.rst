@@ -4,6 +4,8 @@ extra_keras_metrics
 
 Additional metrics integrated with the Keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
 
+**THE PACKAGE CURRENTLY DOES NOT SUPPORT TENSORFLOW 2 (WIP)**
+
 How do I install this package?
 ----------------------------------------------
 As usual, just download it using pip:
