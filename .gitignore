@@ -10,3 +10,7 @@
 */__pycache__/*
 
 **/__pycache__/*
+.coverage
+.coverage*
+htmlcov
+.pytest_cache
