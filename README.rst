@@ -2,9 +2,7 @@ extra_keras_metrics
 =========================================================================================
 |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
 
-Additional metrics integrated with the Keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
-
-**THE PACKAGE CURRENTLY DOES NOT SUPPORT TENSORFLOW 2 (WIP)**
+Additional metrics integrated with the Keras NN library.
 
 How do I install this package?
 ----------------------------------------------
@@ -22,64 +20,27 @@ Since some software handling coverages sometimes get slightly different results,
 
 How do I use this package?
 ----------------------------------------------
-Just by importing it you will be able to access all the non-parametric metrics, such as `"auprc"` and `"auroc"`:
+To import all the binary metrics just run the following:
 
 .. code:: python
 
-    import extra_keras_metrics
+    from extra_keras_metrics import get_binary_metrics
 
     model = my_keras_model()
     model.compile(
-        optimizer="sgd",
+        optimizer="nadam",
         loss="binary_crossentropy",
-        metrics=["auroc", "auprc"]
+        metrics=get_binary_metrics()
     )
 
-For the parametric metrics, such as `"average_precision_at_k"`, you will need to import them, such as:
-
-.. code:: python
-
-    from extra_keras_metrics import average_precision_at_k
-
-    model = my_keras_model()
-    model.compile(
-        optimizer="sgd",
-        loss="binary_crossentropy",
-        metrics=[average_precision_at_k(1), average_precision_at_k(2)]
-    )
-
-This way in the history of the model you will find both the metrics indexed as `"average_precision_at_k_1"` and `"average_precision_at_k_2"` respectively.
-
-Which metrics do I get?
-----------------------------------------------
-You will get all the following metrics taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_. At the time of writing, the ones available are the following:
-
-The **non-parametric** ones are (tested against their conterpart from sklearn):
-
-- `AUPRC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `sklearn's average_precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score>`_).
-- `AUROC <https://www.tensorflow.org/api_docs/python/tf/metrics/auc>`_  (tested against `sklearn's roc_auc_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html>`_).
-- `false_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/false_negatives>`_  (tested against false negatives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
-- `false_positives <https://tensorflow.org/api_docs/python/tf/metrics/false_positives>`_  (tested against false positives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_).
-- `mean_absolute_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_absolute_error>`_ (tested against `sklearn's mean_absolute_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html#sklearn.metrics.mean_absolute_error>`_)
-- `mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_squared_error>`_ (tested against `sklearn's mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
-- `precision <https://www.tensorflow.org/api_docs/python/tf/metrics/precision>`_ (tested against `sklearn's precision_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score>`_)
-- `recall <https://www.tensorflow.org/api_docs/python/tf/metrics/recall>`_ (tested against `sklearn's recall_score <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score>`_)
-- `root_mean_squared_error <https://www.tensorflow.org/api_docs/python/tf/metrics/root_mean_squared_error>`_ (tested against squared root of `sklean's mean_squared_error <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error>`_)
-- `true_negatives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_negatives>`_ (tested against true negatives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
-- `true_positives <https://www.tensorflow.org/api_docs/python/tf/metrics/true_positives>`_ (tested against true positives from `sklearn's confusion_matrix <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix>`_)
-
-The **parametric** ones are (only execution is tested, no baseline in sklearn was available):
-
-- `average_precision_at_k <https://www.tensorflow.org/api_docs/python/tf/metrics/average_precision_at_k>`_
-- `precision_at_k <https://www.tensorflow.org/api_docs/python/tf/metrics/precision_at_k>`_
-- `recall_at_k <https://www.tensorflow.org/api_docs/python/tf/metrics/recall_at_k>`_
-- `mean_iou <https://www.tensorflow.org/api_docs/python/tf/metrics/mean_iou>`_
-- `sensitivity_at_specificity <https://www.tensorflow.org/api_docs/python/tf/metrics/sensitivity_at_specificity>`_
-- `specificity_at_sensitivity <https://www.tensorflow.org/api_docs/python/tf/metrics/specificity_at_sensitivity>`_
 
 Extras
 ----------------------------
-I've created also another couple packages you might enjoy: one, called `extra_keras_utils <https://github.com/LucaCappelletti94/extra_keras_utils>`_ that contains some commonly used code for Keras projects and `plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`_ which automatically plots a keras training history.
+I've created also another couple packages you might enjoy this other one,
+called `extra_keras_utils <https://github.com/LucaCappelletti94/extra_keras_utils>`_
+that contains some commonly used code for Keras projects and
+`plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`
+which automatically plots a keras training history.
 
 
 .. |travis| image:: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics.png
@@ -110,7 +71,7 @@ I've created also another couple packages you might enjoy: one, called `extra_ke
     :target: https://pepy.tech/badge/extra-keras-metrics
     :alt: Pypi total project downloads 
 
-.. |codacy|  image:: https://api.codacy.com/project/badge/Grade/5c1fbcfbffc047e6bf810e9372198a5b
+.. |codacy| image:: https://api.codacy.com/project/badge/Grade/5c1fbcfbffc047e6bf810e9372198a5b
     :target: https://www.codacy.com/app/LucaCappelletti94/extra_keras_metrics?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LucaCappelletti94/extra_keras_metrics&amp;utm_campaign=Badge_Grade
     :alt: Codacy Maintainability
 
