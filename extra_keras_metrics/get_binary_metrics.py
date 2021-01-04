@@ -50,7 +50,7 @@ def get_binary_metrics():
             FowlkesMallowsIndex(name="fowlkes_mallows_index"),
             Informedness(name="informedness"),
             Markedness(name="markedness"),
-            PositiveLikelihoodRatio(name="LR+"),
-            NegativeLikelihoodRatio(name="LR-"),
+            PositiveLikelihoodRatio(name="LR_pos"),
+            NegativeLikelihoodRatio(name="LR_neg"),
             DiagnosticOddsRatio(name="DOR")
     ]
