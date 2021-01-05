@@ -34,7 +34,7 @@ To retrieve an instance of the set of multi-class metrics you can use:
     model = my_keras_model()
     model.compile(
         optimizer="nadam",
-        loss="binary_crossentropy",
+        loss="categorical_crossentropy",
         metrics=get_minimal_multiclass_metrics()
     )
 
