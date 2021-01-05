@@ -3,7 +3,6 @@ README.rst
 setup.py
 extra_keras_metrics/__init__.py
 extra_keras_metrics/__version__.py
-extra_keras_metrics/accuracy.py
 extra_keras_metrics/balanced_accuracy.py
 extra_keras_metrics/binary_metric.py
 extra_keras_metrics/diagnostic_odds_ratio.py
@@ -22,9 +21,7 @@ extra_keras_metrics/miss_rate.py
 extra_keras_metrics/negative_likelihood_ratio.py
 extra_keras_metrics/negative_predictive_value.py
 extra_keras_metrics/positive_likelihood_ratio.py
-extra_keras_metrics/precision.py
 extra_keras_metrics/prevalence_threshold.py
-extra_keras_metrics/recall.py
 extra_keras_metrics/specificity.py
 extra_keras_metrics/threat_score.py
 extra_keras_metrics/true_negatives_ratio.py

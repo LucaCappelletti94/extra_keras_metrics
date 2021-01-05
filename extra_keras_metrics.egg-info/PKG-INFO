@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: extra-keras-metrics
-Version: 1.3.3
+Version: 2.0.0
 Summary: Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
 Home-page: https://github.com/LucaCappelletti94/extra_keras_metrics
 Author: Luca Cappelletti
@@ -28,19 +28,55 @@ Description: extra_keras_metrics
         
         How do I use this package?
         ----------------------------------------------
-        To import all the binary metrics just run the following:
+        Other than by importing the single metrics from the package, we make available
+        also sets of metrics.
+        
+        Multi-class metrics
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        To retrieve an instance of the set of multi-class metrics you can use:
         
         .. code:: python
         
-            from extra_keras_metrics import get_binary_metrics
+            from extra_keras_metrics import get_minimal_multiclass_metrics
+        
+            model = my_keras_model()
+            model.compile(
+                optimizer="nadam",
+                loss="categorical_crossentropy",
+                metrics=get_minimal_multiclass_metrics()
+            )
+        
+        Binary metrics
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        To retrieve an instance of the set of binary-class metrics you can use:
+        
+        .. code:: python
+        
+            from extra_keras_metrics import get_standard_binary_metrics
         
             model = my_keras_model()
             model.compile(
                 optimizer="nadam",
                 loss="binary_crossentropy",
-                metrics=get_binary_metrics()
+                metrics=get_standard_binary_metrics()
             )
         
+        All the binary metrics
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        We have implemented all sorts of binary metrics, including some relatively
+        more obscure ones. If you want ALL the binary metrics we implemented you can
+        use the following method:
+        
+        .. code:: python
+        
+            from extra_keras_metrics import get_complete_binary_metrics
+        
+            model = my_keras_model()
+            model.compile(
+                optimizer="nadam",
+                loss="binary_crossentropy",
+                metrics=get_complete_binary_metrics()
+            )
         
         Extras
         ----------------------------
@@ -48,7 +84,7 @@ Description: extra_keras_metrics
         called `extra_keras_utils <https://github.com/LucaCappelletti94/extra_keras_utils>`_
         that contains some commonly used code for Keras projects and
         `plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`
-        which automatically plots a keras training history.
+        which automatically plots a Keras training history.
         
         
         .. |travis| image:: https://travis-ci.org/LucaCappelletti94/extra_keras_metrics.png
