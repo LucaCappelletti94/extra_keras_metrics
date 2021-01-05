@@ -1,1 +1,1 @@
-import silence_tensorflow
+import silence_tensorflow.auto

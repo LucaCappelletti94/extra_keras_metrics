@@ -18,9 +18,7 @@ from .miss_rate import MissRate
 from .negative_likelihood_ratio import NegativeLikelihoodRatio
 from .negative_predictive_value import NegativePredictiveValue
 from .positive_likelihood_ratio import PositiveLikelihoodRatio
-from .precision import Precision
 from .prevalence_threshold import PrevalenceThreshold
-from .recall import Recall
 from .specificity import Specificity
 from .threat_score import ThreatScore
 from .true_negatives_ratio import TrueNegativesRatio
@@ -34,9 +32,7 @@ __all__ = [
     "FalsePositivesRatio",
     "TrueNegativesRatio",
     "FalseNegativesRatio",
-    "Recall",
     "Specificity",
-    "Precision",
     "MissRate",
     "FallOut",
     "NegativePredictiveValue",
