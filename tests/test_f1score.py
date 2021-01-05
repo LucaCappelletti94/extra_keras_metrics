@@ -1,7 +1,8 @@
-from .utils import compare_metrics
+import numpy as np
 from extra_keras_metrics import F1Score
 from sklearn.metrics import f1_score as baseline
-import numpy as np
+
+from .utils import compare_metrics
 
 
 def f1score_score(y_true, y_pred):

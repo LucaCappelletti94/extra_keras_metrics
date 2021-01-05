@@ -1,5 +1,8 @@
-from .binary_metric import BinaryMetric
+"""Module implementing the Diagnostic Odds Ratio metric."""
 from tensorflow.keras.backend import epsilon
+
+from .binary_metric import BinaryMetric
+
 
 class DiagnosticOddsRatio(BinaryMetric):
     def _custom_metric(self):

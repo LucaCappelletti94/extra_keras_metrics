@@ -1,7 +1,8 @@
-from .utils import compare_metrics
+import numpy as np
 from extra_keras_metrics import Precision
 from sklearn.metrics import precision_score as baseline
-import numpy as np
+
+from .utils import compare_metrics
 
 
 def precision_score(y_true, y_pred):

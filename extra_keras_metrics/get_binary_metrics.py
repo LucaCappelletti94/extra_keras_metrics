@@ -1,56 +1,94 @@
-from .accuracy import Accuracy
+"""Module providing differential methods for metric lists."""
+from typing import List, Union
+
+from tensorflow.keras.metrics import AUC, Precision, Recall
+
 from .balanced_accuracy import BalancedAccuracy
+from .binary_metric import BinaryMetric
+from .diagnostic_odds_ratio import DiagnosticOddsRatio
 from .f1score import F1Score
-from .matthews_correlation_coefficient import MatthewsCorrelationCoefficient
-from .true_positives_ratio import TruePositivesRatio
-from .false_positives_ratio import FalsePositivesRatio
-from .true_negatives_ratio import TrueNegativesRatio
-from .false_negatives_ratio import FalseNegativesRatio
-from .recall import Recall
-from .specificity import Specificity
-from .precision import Precision
-from .miss_rate import MissRate
 from .fallout import FallOut
-from .negative_predictive_value import NegativePredictiveValue
 from .false_discovery_rate import FalseDiscoveryRate
+from .false_negatives_ratio import FalseNegativesRatio
 from .false_omission_rate import FalseOmissionRate
-from .prevalence_threshold import PrevalenceThreshold
-from .threat_score import ThreatScore
+from .false_positives_ratio import FalsePositivesRatio
 from .fowlkes_mallows_index import FowlkesMallowsIndex
 from .informedness import Informedness
 from .markedness import Markedness
-from .positive_likelihood_ratio import PositiveLikelihoodRatio
+from .matthews_correlation_coefficient import MatthewsCorrelationCoefficient
+from .miss_rate import MissRate
 from .negative_likelihood_ratio import NegativeLikelihoodRatio
-from .diagnostic_odds_ratio import DiagnosticOddsRatio
+from .negative_predictive_value import NegativePredictiveValue
+from .positive_likelihood_ratio import PositiveLikelihoodRatio
+from .prevalence_threshold import PrevalenceThreshold
+from .specificity import Specificity
+from .threat_score import ThreatScore
+from .true_negatives_ratio import TrueNegativesRatio
+from .true_positives_ratio import TruePositivesRatio
 
-from tensorflow.keras.metrics import AUC
 
-def get_binary_metrics():
+def get_minimal_multiclass_metrics() -> List[Union[AUC, str, BinaryMetric]]:
+    """Return minimal list of multiclass metrics.
+
+    The set of metrics includes accuracy, AUROC and AUPRC.
+    """
     return [
-            Accuracy(name="accuracy"),
-            BalancedAccuracy(name="balanced_accuracy"),
-            AUC(curve="roc", name="AUROC"),
-            AUC(curve="pr", name="AUPRC"),
-            F1Score(name="f1_score"),
-            MatthewsCorrelationCoefficient(name="mcc"),
-            TruePositivesRatio(name="tp/t"),
-            FalsePositivesRatio(name="fp/t"),
-            TrueNegativesRatio(name="tn/t"),
-            FalseNegativesRatio(name="fn/t"),
-            Recall(name="recall"),
-            Specificity(name="specificity"),
-            Precision(name="precision"),
-            MissRate(name="miss_rate"),
-            FallOut(name="fall_out"),
-            NegativePredictiveValue(name="negative_predictive_value"),
-            FalseDiscoveryRate(name="false_discovery_rate"),
-            FalseOmissionRate(name="false_omission-rate"),
-            PrevalenceThreshold(name="prevalence_threshold"),
-            ThreatScore(name="threat_score"),
-            FowlkesMallowsIndex(name="fowlkes_mallows_index"),
-            Informedness(name="informedness"),
-            Markedness(name="markedness"),
-            PositiveLikelihoodRatio(name="LR_pos"),
-            NegativeLikelihoodRatio(name="LR_neg"),
-            DiagnosticOddsRatio(name="DOR")
+        "accuracy",
+        Recall(name="recall"),
+        Precision(name="precision"),
+        AUC(curve="roc", name="AUROC"),
+        AUC(curve="pr", name="AUPRC")
+    ]
+
+
+def get_standard_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
+    """Return standard list of binary metrics.
+
+    The set of metrics includes accuracy, balanced accuracy, AUROC, AUPRC,
+    F1 Score, Recall, Specificity, Precision, Miss rate,
+    Fallout and Matthews Correlation Coefficient.
+    """
+    return [
+        *get_minimal_multiclass_metrics(),
+        F1Score(name="f1_score"),
+        BalancedAccuracy(name="balanced_accuracy"),
+        Specificity(name="specificity"),
+        MissRate(name="miss_rate"),
+        FallOut(name="fall_out"),
+        MatthewsCorrelationCoefficient(name="mcc"),
+    ]
+
+
+def get_complete_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
+    """Return complete list of binary metrics.
+
+    This method returns ALL the implemented metrics.
+
+    The set of metrics includes accuracy, balanced accuracy, AUROC, AUPRC,
+    F1 Score, Recall, Specificity, Precision, Miss rate,
+    Fallout, Matthews Correlation Coefficient, rate of true positives over total,
+    rate of false positive over total, rate of true negatives over total,
+    rate of false negatives over total, negative predictive value,
+    false discovery rate, false omission rate, prevalence threshold,
+    threat score, Fowles-Mallows index, informedness, markedness,
+    positive likelihood ratio, negative likelihood ratio and
+    diagnostic odds ratio.
+    """
+    return [
+        *get_standard_binary_metrics(),
+        TruePositivesRatio(name="tp/t"),
+        FalsePositivesRatio(name="fp/t"),
+        TrueNegativesRatio(name="tn/t"),
+        FalseNegativesRatio(name="fn/t"),
+        NegativePredictiveValue(name="negative_predictive_value"),
+        FalseDiscoveryRate(name="false_discovery_rate"),
+        FalseOmissionRate(name="false_omission_rate"),
+        PrevalenceThreshold(name="prevalence_threshold"),
+        ThreatScore(name="threat_score"),
+        FowlkesMallowsIndex(name="fowlkes_mallows_index"),
+        Informedness(name="informedness"),
+        Markedness(name="markedness"),
+        PositiveLikelihoodRatio(name="LR_pos"),
+        NegativeLikelihoodRatio(name="LR_neg"),
+        DiagnosticOddsRatio(name="DOR")
     ]

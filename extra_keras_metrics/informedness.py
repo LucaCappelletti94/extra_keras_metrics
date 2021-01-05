@@ -1,6 +1,8 @@
 import tensorflow as tf
-from .binary_metric import BinaryMetric
 from tensorflow.keras.backend import epsilon
+
+from .binary_metric import BinaryMetric
+
 
 class Informedness(BinaryMetric):
     def _custom_metric(self):

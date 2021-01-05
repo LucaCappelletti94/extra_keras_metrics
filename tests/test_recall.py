@@ -1,7 +1,8 @@
-from .utils import compare_metrics
+import numpy as np
 from extra_keras_metrics import Recall
 from sklearn.metrics import recall_score as baseline
-import numpy as np
+
+from .utils import compare_metrics
 
 
 def recall_score(y_true, y_pred):

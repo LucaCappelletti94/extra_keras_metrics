@@ -1,32 +1,32 @@
-from .accuracy import Accuracy
+"""This package provides multiple metrics implemeted for Keras/Tensorflow."""
 from .balanced_accuracy import BalancedAccuracy
+from .diagnostic_odds_ratio import DiagnosticOddsRatio
 from .f1score import F1Score
-from .matthews_correlation_coefficient import MatthewsCorrelationCoefficient
-from .true_positives_ratio import TruePositivesRatio
-from .false_positives_ratio import FalsePositivesRatio
-from .true_negatives_ratio import TrueNegativesRatio
-from .false_negatives_ratio import FalseNegativesRatio
-from .recall import Recall
-from .specificity import Specificity
-from .precision import Precision
-from .miss_rate import MissRate
 from .fallout import FallOut
-from .negative_predictive_value import NegativePredictiveValue
 from .false_discovery_rate import FalseDiscoveryRate
+from .false_negatives_ratio import FalseNegativesRatio
 from .false_omission_rate import FalseOmissionRate
-from .prevalence_threshold import PrevalenceThreshold
-from .threat_score import ThreatScore
+from .false_positives_ratio import FalsePositivesRatio
 from .fowlkes_mallows_index import FowlkesMallowsIndex
+from .get_binary_metrics import (get_complete_binary_metrics,
+                                 get_minimal_multiclass_metrics,
+                                 get_standard_binary_metrics)
 from .informedness import Informedness
 from .markedness import Markedness
-from .positive_likelihood_ratio import PositiveLikelihoodRatio
+from .matthews_correlation_coefficient import MatthewsCorrelationCoefficient
+from .miss_rate import MissRate
 from .negative_likelihood_ratio import NegativeLikelihoodRatio
-from .diagnostic_odds_ratio import DiagnosticOddsRatio
-
-from .get_binary_metrics import get_binary_metrics
+from .negative_predictive_value import NegativePredictiveValue
+from .positive_likelihood_ratio import PositiveLikelihoodRatio
+from .precision import Precision
+from .prevalence_threshold import PrevalenceThreshold
+from .recall import Recall
+from .specificity import Specificity
+from .threat_score import ThreatScore
+from .true_negatives_ratio import TrueNegativesRatio
+from .true_positives_ratio import TruePositivesRatio
 
 __all__ = [
-    "Accuracy",
     "BalancedAccuracy",
     "F1Score",
     "MatthewsCorrelationCoefficient",
@@ -50,4 +50,7 @@ __all__ = [
     "PositiveLikelihoodRatio",
     "NegativeLikelihoodRatio",
     "DiagnosticOddsRatio",
+    "get_complete_binary_metrics",
+    "get_minimal_multiclass_metrics",
+    "get_standard_binary_metrics"
 ]

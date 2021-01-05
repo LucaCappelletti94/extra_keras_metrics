@@ -1,14 +1,16 @@
+"""Module implementing the genetic binary metric class."""
 import tensorflow as tf
 import tensorflow.keras.backend as K
 from tensorflow.keras.metrics import Metric
 
+
 class BinaryMetric(Metric):
     """**BINARY** Metric which is based on the true positives, false positives, 
     true negatives, false negatives.
-    
+
     This class is abstract and its childs should override the `_custom_metric`
     method.
-    
+
     The method can use the variables:
         self.tp -> true positvies
         self.fp -> false positvies
@@ -24,16 +26,19 @@ class BinaryMetric(Metric):
             return self.tp / (self.tp + self.fn + epsilon())
     """
 
-    def __init__(self, name: str=None, **kwargs):
+    def __init__(self, name: str = None, **kwargs):
         """Initialize the Binary metric. The kwargs will be passed to the father
             class tensorflow.keras.metrics.Metric.
 
-            Arguments
-            ---------
-            name: str,
-                The name of the metric.
+        Parameters
+        ---------
+        name: str,
+            The name of the metric.
         """
-        super(BinaryMetric, self).__init__(name=name or self.__class__.__name__, **kwargs)
+        super(BinaryMetric, self).__init__(
+            name=name or self.__class__.__name__,
+            **kwargs
+        )
         self.tp = self.add_weight(name='tp', initializer='zeros')
         self.fp = self.add_weight(name='fp', initializer='zeros')
         self.tn = self.add_weight(name='tn', initializer='zeros')
@@ -57,7 +62,7 @@ class BinaryMetric(Metric):
         metric. This method is not supposed to return anything but it must
         only update attributes.
 
-        Arguments
+        Parameters
         ---------
         y_true: tf.tensor,
             The ground truth.
@@ -85,4 +90,6 @@ class BinaryMetric(Metric):
 
     def _custom_metric(self):
         """Method that the subclasses should implement."""
-        raise NotImplementedError("This method should be implemented by subclasses")
+        raise NotImplementedError(
+            "The _custom_metric method must be implemented by subclasses."
+        )

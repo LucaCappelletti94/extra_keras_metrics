@@ -1,7 +1,8 @@
-from .utils import compare_metrics
+import numpy as np
 from extra_keras_metrics import MatthewsCorrelationCoefficient
 from sklearn.metrics import matthews_corrcoef as baseline
-import numpy as np
+
+from .utils import compare_metrics
 
 
 def mcc_score(y_true, y_pred):

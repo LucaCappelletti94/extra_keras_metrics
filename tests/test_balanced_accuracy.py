@@ -1,7 +1,8 @@
-from .utils import compare_metrics
+import numpy as np
 from extra_keras_metrics import BalancedAccuracy
 from sklearn.metrics import balanced_accuracy_score as baseline
-import numpy as np
+
+from .utils import compare_metrics
 
 
 def ba_score(y_true, y_pred):
