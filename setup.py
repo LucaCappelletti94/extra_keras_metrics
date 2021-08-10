@@ -55,6 +55,6 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
     tests_require=test_deps,
     # Add here the package dependencies
-    install_requires=["keras", "decorator"],
+    install_requires=["tensorflow", "decorator"],
     extras_require=extras,
 )
