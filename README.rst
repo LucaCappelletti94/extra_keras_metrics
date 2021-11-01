@@ -38,6 +38,24 @@ To retrieve an instance of the set of multi-class metrics you can use:
         metrics=get_minimal_multiclass_metrics()
     )
 
+Sparse multi-class metrics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To retrieve an instance of the set of sparse multi-class metrics you can use:
+
+.. code:: python
+
+    from extra_keras_metrics import get_sparse_multiclass_metrics
+
+    model = my_keras_model()
+    model.compile(
+        optimizer="nadam",
+        loss="sparse_categorical_crossentropy",
+        metrics=get_sparse_multiclass_metrics()
+    )
+
+Note that for now this only includes the categorial accuracy, since it is the only one
+provided out-of-the-box by Tensorflow. We will be implementing more metrics ourselves.
+
 Binary metrics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To retrieve an instance of the set of binary-class metrics you can use:

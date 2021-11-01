@@ -1,7 +1,8 @@
 """Module providing differential methods for metric lists."""
 from typing import List, Union
 
-from tensorflow.keras.metrics import AUC, Precision, Recall
+from tensorflow.keras.metrics import AUC, Precision, Recall # pylint: disable=import-error,no-name-in-module
+from tensorflow.keras.metrics import SparseCategoricalAccuracy # pylint: disable=import-error,no-name-in-module
 
 from .balanced_accuracy import BalancedAccuracy
 from .binary_metric import BinaryMetric
@@ -26,6 +27,13 @@ from .threat_score import ThreatScore
 from .true_negatives_ratio import TrueNegativesRatio
 from .true_positives_ratio import TruePositivesRatio
 
+
+def get_sparse_multiclass_metrics() -> List[SparseCategoricalAccuracy]:
+    """Return minimal list of multiclass metrics supporting sparse output.
+    """
+    return [
+        SparseCategoricalAccuracy(name="sparse_categorical_accuracy")
+    ]
 
 def get_minimal_multiclass_metrics() -> List[Union[AUC, str, BinaryMetric]]:
     """Return minimal list of multiclass metrics.
