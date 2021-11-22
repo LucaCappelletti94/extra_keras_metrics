@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: extra-keras-metrics
-Version: 2.0.4
+Version: 2.0.5
 Summary: Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
 Home-page: https://github.com/LucaCappelletti94/extra_keras_metrics
 Author: Luca Cappelletti
