@@ -96,7 +96,7 @@ def get_complete_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
         FowlkesMallowsIndex(name="fowlkes_mallows_index"),
         Informedness(name="informedness"),
         Markedness(name="markedness"),
-        PositiveLikelihoodRatio(name="LR_pos"),
-        NegativeLikelihoodRatio(name="LR_neg"),
+        PositiveLikelihoodRatio(name="positive_likelyhood_ratio"),
+        NegativeLikelihoodRatio(name="negative_likelyhood_ratio"),
         DiagnosticOddsRatio(name="DOR")
     ]
