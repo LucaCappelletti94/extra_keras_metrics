@@ -84,10 +84,10 @@ def get_complete_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
     """
     return [
         *get_standard_binary_metrics(),
-        TruePositivesRatio(name="tp/t"),
-        FalsePositivesRatio(name="fp/t"),
-        TrueNegativesRatio(name="tn/t"),
-        FalseNegativesRatio(name="fn/t"),
+        TruePositivesRatio(name="true_positives_over_total"),
+        FalsePositivesRatio(name="false_positives_over_total"),
+        TrueNegativesRatio(name="true_negatives_over_total"),
+        FalseNegativesRatio(name="false_negatives_over_total"),
         NegativePredictiveValue(name="negative_predictive_value"),
         FalseDiscoveryRate(name="false_discovery_rate"),
         FalseOmissionRate(name="false_omission_rate"),
