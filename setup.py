@@ -30,7 +30,8 @@ def find_version(*file_paths):
 
 __version__ = find_version("extra_keras_metrics", "__version__.py")
 
-test_deps =["pytest", "codacy-coverage", "coveralls", "validate_version_code", "pytest-cov", "numpy", "sklearn", "silence_tensorflow"]
+test_deps = ["pytest", "codacy-coverage", "coveralls", "validate_version_code",
+             "pytest-cov", "numpy", "sklearn", "silence_tensorflow"]
 
 extras = {
     'test': test_deps,
@@ -39,7 +40,7 @@ extras = {
 setup(
     name='extra_keras_metrics',
     version=__version__,
-    description="Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_",
+    description="Additional metrics integrated with the TensorFlow and Keras NN library.",
     long_description=long_description,
     url="https://github.com/LucaCappelletti94/extra_keras_metrics",
     author="Luca Cappelletti",

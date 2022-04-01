@@ -2,7 +2,7 @@ extra_keras_metrics
 =========================================================================================
 |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
 
-Additional metrics integrated with the Keras NN library.
+Additional metrics integrated with the TensorFlow and Keras Neural Network libraries.
 
 How do I install this package?
 ----------------------------------------------
