@@ -43,11 +43,10 @@ class BinaryMetric(Metric):
         self.fp = self.add_weight(name='fp', initializer='zeros')
         self.tn = self.add_weight(name='tn', initializer='zeros')
         self.fn = self.add_weight(name='fn', initializer='zeros')
-        self._result = self.add_weight(name=name, initializer='zeros')
 
     def result(self):
         """Return the current state of the metric."""
-        return self._result
+        return self._custom_metric()
 
     def reset_states(self):
         """Reset the counters, this is called at the start of each epoch."""
@@ -55,7 +54,6 @@ class BinaryMetric(Metric):
         self.fp.assign(0)
         self.tn.assign(0)
         self.fn.assign(0)
-        self._result.assign(0)
 
     def update_state(self, y_true, y_pred, sample_weight=None):
         """Given the predictions of the new batch, update the counters of the 
@@ -85,8 +83,6 @@ class BinaryMetric(Metric):
         self.fp.assign_add(K.sum(y_neg * y_pred_pos))
         self.fn.assign_add(K.sum(y_pos * y_pred_neg))
         self.tn.assign_add(K.sum(y_neg * y_pred_neg))
-
-        self._result.assign(self._custom_metric())
 
     def _custom_metric(self):
         """Method that the subclasses should implement."""
