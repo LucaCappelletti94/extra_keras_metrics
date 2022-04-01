@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: extra-keras-metrics
-Version: 2.0.5
-Summary: Additional metrics integrated with the keras NN library, taken directly from `Tensorflow <https://www.tensorflow.org/api_docs/python/tf/metrics/>`_
+Version: 2.0.6
+Summary: Additional metrics integrated with the TensorFlow and Keras NN library.
 Home-page: https://github.com/LucaCappelletti94/extra_keras_metrics
 Author: Luca Cappelletti
 Author-email: cappelletti.luca94@gmail.com
@@ -10,7 +10,7 @@ Description: extra_keras_metrics
         =========================================================================================
         |travis| |sonar_quality| |sonar_maintainability| |codacy| |code_climate_maintainability| |pip| |downloads|
         
-        Additional metrics integrated with the Keras NN library.
+        Additional metrics integrated with the TensorFlow and Keras Neural Network libraries.
         
         How do I install this package?
         ----------------------------------------------
