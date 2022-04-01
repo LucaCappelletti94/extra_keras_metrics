@@ -15,9 +15,11 @@ def test_binary_model_run():
         loss="binary_crossentropy",
         metrics=get_complete_binary_metrics()
     )
-    model.fit(
-        np.random.uniform(size=(10, 10)),
-        np.random.randint(2, size=(10, )),
+    history = model.fit(
+        np.random.uniform(size=(1000, 10)),
+        np.random.randint(2, size=(1000, )),
+        epochs=30,
+        sample_weight=np.random.uniform(size=(1000, )),
     )
 
 

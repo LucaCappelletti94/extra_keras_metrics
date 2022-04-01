@@ -1,7 +1,9 @@
 """Module implementing the genetic binary metric class."""
 import tensorflow as tf
 import tensorflow.keras.backend as K
-from tensorflow.keras.metrics import Metric
+from tensorflow.keras.metrics import Metric, Sum
+from tensorflow.python.keras.utils import losses_utils
+from tensorflow.python.keras.utils import metrics_utils
 
 
 class BinaryMetric(Metric):
@@ -39,21 +41,34 @@ class BinaryMetric(Metric):
             name=name or self.__class__.__name__,
             **kwargs
         )
-        self.tp = self.add_weight(name='tp', initializer='zeros')
-        self.fp = self.add_weight(name='fp', initializer='zeros')
-        self.tn = self.add_weight(name='tn', initializer='zeros')
-        self.fn = self.add_weight(name='fn', initializer='zeros')
+        self.tp_sum = Sum()
+        self.fp_sum = Sum()
+        self.tn_sum = Sum()
+        self.fn_sum = Sum()
+
+    @property
+    def tp(self):
+        return self.tp_sum.result()
+    @property
+    def fp(self):
+        return self.fp_sum.result()
+    @property
+    def tn(self):
+        return self.tn_sum.result()
+    @property
+    def fn(self):
+        return self.fn_sum.result()
 
     def result(self):
         """Return the current state of the metric."""
         return self._custom_metric()
 
-    def reset_states(self):
+    def reset_state(self):
         """Reset the counters, this is called at the start of each epoch."""
-        self.tp.assign(0)
-        self.fp.assign(0)
-        self.tn.assign(0)
-        self.fn.assign(0)
+        self.tp_sum.reset_state()
+        self.fp_sum.reset_state()
+        self.tn_sum.reset_state()
+        self.fn_sum.reset_state()
 
     def update_state(self, y_true, y_pred, sample_weight=None):
         """Given the predictions of the new batch, update the counters of the 
@@ -73,16 +88,41 @@ class BinaryMetric(Metric):
         y_true = tf.cast(y_true, self.dtype)
         y_pred = tf.cast(y_pred, self.dtype)
 
+        # Ensuring that the given tensors have compatible shapes
+        [y_true, y_pred], sample_weight = (
+            metrics_utils.ragged_assert_compatible_and_get_flat_values(
+                [y_true, y_pred], sample_weight))
+
+        # Handle sparse vectorsand non uniform shapes
+        # E.g. converts the shapes (n,) or (n, 1, 1) to (n, 1)
+        y_pred, y_true = losses_utils.squeeze_or_expand_dimensions(
+            y_pred, y_true)
+
         y_pred_pos = K.round(K.clip(y_pred, 0, 1))
         y_pred_neg = 1 - y_pred_pos
 
         y_pos = K.round(K.clip(y_true, 0, 1))
         y_neg = 1 - y_pos
 
-        self.tp.assign_add(K.sum(y_pos * y_pred_pos))
-        self.fp.assign_add(K.sum(y_neg * y_pred_pos))
-        self.fn.assign_add(K.sum(y_pos * y_pred_neg))
-        self.tn.assign_add(K.sum(y_neg * y_pred_neg))
+        self.tp_sum.update_state(
+            y_pos * y_pred_pos, 
+            sample_weight=sample_weight,
+        )
+        self.fp_sum.update_state(
+            y_neg * y_pred_pos, 
+            sample_weight=sample_weight,
+        )
+        self.fn_sum.update_state(
+            y_pos * y_pred_neg, 
+            sample_weight=sample_weight,
+        )
+        self.tn_sum.update_state(
+            y_neg * y_pred_neg, 
+            sample_weight=sample_weight,
+        )
+
+        # The parent's method is an abstract method that is not implemented
+        # in the parent class and thus it must not be called
 
     def _custom_metric(self):
         """Method that the subclasses should implement."""
