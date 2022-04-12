@@ -2,7 +2,6 @@
 import tensorflow as tf
 import tensorflow.keras.backend as K
 from tensorflow.keras.metrics import Metric, Sum
-from tensorflow.python.keras.utils import losses_utils
 from tensorflow.python.keras.utils import metrics_utils
 
 
@@ -92,11 +91,6 @@ class BinaryMetric(Metric):
         [y_true, y_pred], sample_weight = (
             metrics_utils.ragged_assert_compatible_and_get_flat_values(
                 [y_true, y_pred], sample_weight))
-
-        # Handle sparse vectorsand non uniform shapes
-        # E.g. converts the shapes (n,) or (n, 1, 1) to (n, 1)
-        y_pred, y_true = losses_utils.squeeze_or_expand_dimensions(
-            y_pred, y_true)
 
         y_pred_pos = K.round(K.clip(y_pred, 0, 1))
         y_pred_neg = 1 - y_pred_pos
