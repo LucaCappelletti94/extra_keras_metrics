@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: extra-keras-metrics
-Version: 2.0.6
+Version: 2.0.7
 Summary: Additional metrics integrated with the TensorFlow and Keras NN library.
 Home-page: https://github.com/LucaCappelletti94/extra_keras_metrics
 Author: Luca Cappelletti
@@ -101,7 +101,7 @@ Description: extra_keras_metrics
         I've created also another couple packages you might enjoy this other one,
         called `extra_keras_utils <https://github.com/LucaCappelletti94/extra_keras_utils>`_
         that contains some commonly used code for Keras projects and
-        `plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`
+        `plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`_
         which automatically plots a Keras training history.
         
         
