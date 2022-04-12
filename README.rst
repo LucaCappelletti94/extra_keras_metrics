@@ -93,7 +93,7 @@ Extras
 I've created also another couple packages you might enjoy this other one,
 called `extra_keras_utils <https://github.com/LucaCappelletti94/extra_keras_utils>`_
 that contains some commonly used code for Keras projects and
-`plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`
+`plot_keras_history <https://github.com/LucaCappelletti94/plot_keras_history>`_
 which automatically plots a Keras training history.
 
 
