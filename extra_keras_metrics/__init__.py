@@ -1,5 +1,4 @@
 """This package provides multiple metrics implemeted for Keras/Tensorflow."""
-from support_developer import support_luca
 from .balanced_accuracy import BalancedAccuracy
 from .diagnostic_odds_ratio import DiagnosticOddsRatio
 from .f1score import F1Score
@@ -25,8 +24,6 @@ from .specificity import Specificity
 from .threat_score import ThreatScore
 from .true_negatives_ratio import TrueNegativesRatio
 from .true_positives_ratio import TruePositivesRatio
-
-support_luca("extra_keras_metrics")
 
 __all__ = [
     "BalancedAccuracy",
