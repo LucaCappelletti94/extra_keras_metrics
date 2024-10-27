@@ -1,5 +1,10 @@
 from .compare_metrics import compare_metrics
-from .confusion_matrix import true_negatives, false_positives, false_negatives, true_positives
+from .confusion_matrix import (
+    true_negatives,
+    false_positives,
+    false_negatives,
+    true_positives,
+)
 from .run_metric import run_metric
 
 __all__ = [
@@ -8,5 +13,5 @@ __all__ = [
     "false_positives",
     "false_negatives",
     "true_positives",
-    "run_metric"
+    "run_metric",
 ]

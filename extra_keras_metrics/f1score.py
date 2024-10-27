@@ -1,4 +1,5 @@
 """Module implementing the F1 Score metric."""
+
 from tensorflow.keras.backend import epsilon
 
 from .binary_metric import BinaryMetric

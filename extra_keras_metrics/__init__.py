@@ -8,10 +8,12 @@ from .false_negatives_ratio import FalseNegativesRatio
 from .false_omission_rate import FalseOmissionRate
 from .false_positives_ratio import FalsePositivesRatio
 from .fowlkes_mallows_index import FowlkesMallowsIndex
-from .get_binary_metrics import (get_complete_binary_metrics,
-                                 get_minimal_multiclass_metrics,
-                                 get_standard_binary_metrics,
-                                 get_sparse_multiclass_metrics)
+from .get_binary_metrics import (
+    get_complete_binary_metrics,
+    get_minimal_multiclass_metrics,
+    get_standard_binary_metrics,
+    get_sparse_multiclass_metrics,
+)
 from .informedness import Informedness
 from .markedness import Markedness
 from .matthews_correlation_coefficient import MatthewsCorrelationCoefficient
@@ -50,5 +52,5 @@ __all__ = [
     "get_complete_binary_metrics",
     "get_minimal_multiclass_metrics",
     "get_standard_binary_metrics",
-    "get_sparse_multiclass_metrics"
+    "get_sparse_multiclass_metrics",
 ]

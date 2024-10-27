@@ -1,12 +1,14 @@
 """Module implementing the genetic binary metric class."""
+
+from typing import Optional
 import tensorflow as tf
-import tensorflow.keras.backend as K
-from tensorflow.keras.metrics import Metric, Sum
-from tensorflow.python.keras.utils import metrics_utils
+import tensorflow.keras.backend as K  # pylint: disable=import-error
+from tensorflow.keras.metrics import Metric, Sum  # pylint: disable=import-error
+from tensorflow.python.keras.utils import metrics_utils  # pylint: disable=import-error
 
 
 class BinaryMetric(Metric):
-    """**BINARY** Metric which is based on the true positives, false positives, 
+    """**BINARY** Metric which is based on the true positives, false positives,
     true negatives, false negatives.
 
     This class is abstract and its childs should override the `_custom_metric`
@@ -27,7 +29,7 @@ class BinaryMetric(Metric):
             return self.tp / (self.tp + self.fn + epsilon())
     """
 
-    def __init__(self, name: str = None, **kwargs):
+    def __init__(self, name: Optional[str] = None, **kwargs):
         """Initialize the Binary metric. The kwargs will be passed to the father
             class tensorflow.keras.metrics.Metric.
 
@@ -37,8 +39,7 @@ class BinaryMetric(Metric):
             The name of the metric.
         """
         super(BinaryMetric, self).__init__(
-            name=name or self.__class__.__name__,
-            **kwargs
+            name=name or self.__class__.__name__, **kwargs
         )
         self.tp_sum = Sum()
         self.fp_sum = Sum()
@@ -47,15 +48,22 @@ class BinaryMetric(Metric):
 
     @property
     def tp(self):
+        """Return the true positives."""
         return self.tp_sum.result()
+
     @property
     def fp(self):
+        """Return the false positives."""
         return self.fp_sum.result()
+
     @property
     def tn(self):
+        """Return the true negatives."""
         return self.tn_sum.result()
+
     @property
     def fn(self):
+        """Return the false negatives."""
         return self.fn_sum.result()
 
     def result(self):
@@ -70,7 +78,7 @@ class BinaryMetric(Metric):
         self.fn_sum.reset_state()
 
     def update_state(self, y_true, y_pred, sample_weight=None):
-        """Given the predictions of the new batch, update the counters of the 
+        """Given the predictions of the new batch, update the counters of the
         metric. This method is not supposed to return anything but it must
         only update attributes.
 
@@ -90,7 +98,9 @@ class BinaryMetric(Metric):
         # Ensuring that the given tensors have compatible shapes
         [y_true, y_pred], sample_weight = (
             metrics_utils.ragged_assert_compatible_and_get_flat_values(
-                [y_true, y_pred], sample_weight))
+                [y_true, y_pred], sample_weight
+            )
+        )
 
         y_pred_pos = K.round(K.clip(y_pred, 0, 1))
         y_pred_neg = 1 - y_pred_pos
@@ -99,19 +109,19 @@ class BinaryMetric(Metric):
         y_neg = 1 - y_pos
 
         self.tp_sum.update_state(
-            y_pos * y_pred_pos, 
+            y_pos * y_pred_pos,
             sample_weight=sample_weight,
         )
         self.fp_sum.update_state(
-            y_neg * y_pred_pos, 
+            y_neg * y_pred_pos,
             sample_weight=sample_weight,
         )
         self.fn_sum.update_state(
-            y_pos * y_pred_neg, 
+            y_pos * y_pred_neg,
             sample_weight=sample_weight,
         )
         self.tn_sum.update_state(
-            y_neg * y_pred_neg, 
+            y_neg * y_pred_neg,
             sample_weight=sample_weight,
         )
 
