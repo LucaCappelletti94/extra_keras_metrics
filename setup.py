@@ -36,7 +36,7 @@ test_deps = [
     "validate_version_code",
     "pytest-cov",
     "numpy",
-    "sklearn",
+    "scikit-learn",
     "silence_tensorflow",
 ]
 
