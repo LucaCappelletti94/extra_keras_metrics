@@ -6,6 +6,7 @@ from tensorflow.keras.metrics import (  # pylint: disable=import-error,no-name-i
     AUC,
     Precision,
     Recall,
+    Accuracy,
 )
 from tensorflow.keras.metrics import (  # pylint: disable=import-error,no-name-in-module
     SparseCategoricalAccuracy,
@@ -42,13 +43,13 @@ def get_sparse_multiclass_metrics() -> List[SparseCategoricalAccuracy]:
     return [SparseCategoricalAccuracy(name="sparse_categorical_accuracy")]
 
 
-def get_minimal_multiclass_metrics() -> List[Union[AUC, str, BinaryMetric]]:
+def get_minimal_multiclass_metrics() -> List[Union[AUC, BinaryMetric]]:
     """Return minimal list of multiclass metrics.
 
     The set of metrics includes accuracy, AUROC and AUPRC.
     """
     return [
-        "accuracy",
+        Accuracy(name="accuracy"),
         Recall(name="recall"),
         Precision(name="precision"),
         AUC(curve="roc", name="AUROC"),
@@ -56,7 +57,7 @@ def get_minimal_multiclass_metrics() -> List[Union[AUC, str, BinaryMetric]]:
     ]
 
 
-def get_standard_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
+def get_standard_binary_metrics() -> List[Union[AUC, BinaryMetric]]:
     """Return standard list of binary metrics.
 
     The set of metrics includes accuracy, balanced accuracy, AUROC, AUPRC,
@@ -74,7 +75,7 @@ def get_standard_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
     ]
 
 
-def get_complete_binary_metrics() -> List[Union[AUC, str, BinaryMetric]]:
+def get_complete_binary_metrics() -> List[Union[AUC, BinaryMetric]]:
     """Return complete list of binary metrics.
 
     This method returns ALL the implemented metrics.
