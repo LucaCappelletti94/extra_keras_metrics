@@ -1,6 +1,6 @@
 """Module providing differential methods for metric lists."""
 
-from typing import List, Union
+from typing import List
 
 from tensorflow.keras.metrics import (  # pylint: disable=import-error,no-name-in-module
     AUC,
@@ -10,10 +10,10 @@ from tensorflow.keras.metrics import (  # pylint: disable=import-error,no-name-i
 )
 from tensorflow.keras.metrics import (  # pylint: disable=import-error,no-name-in-module
     SparseCategoricalAccuracy,
+    Metric,
 )
 
 from extra_keras_metrics.balanced_accuracy import BalancedAccuracy
-from extra_keras_metrics.binary_metric import BinaryMetric
 from extra_keras_metrics.diagnostic_odds_ratio import DiagnosticOddsRatio
 from extra_keras_metrics.f1score import F1Score
 from extra_keras_metrics.fallout import FallOut
@@ -43,7 +43,7 @@ def get_sparse_multiclass_metrics() -> List[SparseCategoricalAccuracy]:
     return [SparseCategoricalAccuracy(name="sparse_categorical_accuracy")]
 
 
-def get_minimal_multiclass_metrics() -> List[Union[AUC, BinaryMetric]]:
+def get_minimal_multiclass_metrics() -> List[Metric]:
     """Return minimal list of multiclass metrics.
 
     The set of metrics includes accuracy, AUROC and AUPRC.
@@ -57,7 +57,7 @@ def get_minimal_multiclass_metrics() -> List[Union[AUC, BinaryMetric]]:
     ]
 
 
-def get_standard_binary_metrics() -> List[Union[AUC, BinaryMetric]]:
+def get_standard_binary_metrics() -> List[Metric]:
     """Return standard list of binary metrics.
 
     The set of metrics includes accuracy, balanced accuracy, AUROC, AUPRC,
@@ -75,7 +75,7 @@ def get_standard_binary_metrics() -> List[Union[AUC, BinaryMetric]]:
     ]
 
 
-def get_complete_binary_metrics() -> List[Union[AUC, BinaryMetric]]:
+def get_complete_binary_metrics() -> List[Metric]:
     """Return complete list of binary metrics.
 
     This method returns ALL the implemented metrics.
